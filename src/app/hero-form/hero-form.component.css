@@ -1,0 +1,37 @@
+.btn-success,
+.btn-default,
+.btn-primary {
+  background-color: white;
+  color: #525252;
+  background-color: #eee;
+  font-size: 1.1rem;
+  padding: 1px 10px 3px 10px;
+  border-radius: 5px;
+  height: 4vh;
+  font-size: 1rem;
+}
+.btn-success:hover {
+  color: white;
+  background-color: #42545c;
+}
+.btn-default:hover {
+  color: white;
+  background-color: #42545c;
+}
+.btn-primary:hover {
+  color: white;
+  background-color: #42545c;
+}
+input {
+  font-size: 1rem;
+}
+button {
+  margin: 5px 2px 0 2px;
+}
+.form-control {
+  width: 10vw;
+  height: 3vh;
+  margin: 2px 0;
+  border-radius: 2px;
+  outline: none;
+}
