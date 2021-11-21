@@ -35,3 +35,10 @@ button {
   border-radius: 2px;
   outline: none;
 }
+.col-xs-3 {
+  font-weight: bold;
+  font-size: 1.1rem;
+}
+.alert-danger {
+  color: red;
+}

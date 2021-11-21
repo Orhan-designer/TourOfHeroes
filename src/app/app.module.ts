@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
-import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http'
-import { CommonModule } from '@angular/common';
-
-import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
-
 import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'
+import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { MatSliderModule } from '@angular/material/slider';
+import { ReactiveFormsModule } from '@angular/forms';
+
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -28,12 +30,15 @@ import { HeroFormComponent } from './hero-form/hero-form.component';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     FormsModule,
     AppRoutingModule,
     CommonModule,
+    ReactiveFormsModule,
+    MatSliderModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false }
+      InMemoryDataService, { dataEncapsulation: false },
     ),
   ],
   providers: [],

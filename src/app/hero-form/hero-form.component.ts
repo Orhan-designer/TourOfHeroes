@@ -1,4 +1,7 @@
+import { FormGroup, FormControl, MaxLengthValidator } from '@angular/forms';
 import { Component } from '@angular/core';
+import { Validators } from '@angular/forms';
+import { ValidationErrors } from '@angular/forms';
 
 import { Hero } from '../hero';
 
@@ -7,20 +10,42 @@ import { Hero } from '../hero';
   templateUrl: './hero-form.component.html',
   styleUrls: ['./hero-form.component.less']
 })
+
+
 export class HeroFormComponent {
-  powers = ['Really Smart', 'Super Flexible',
-    'Super Hot', 'Weather Changer'];
-  model = new Hero(18, 'Dr IQ', this.powers[0], 'Chuck Overstreet');
+
+  powers = [
+    'Strength', 'Agility', 'Stamina',
+    'Intellect', 'Defence', 'Critical Strike', 'Spell combat', 'Versatility'
+  ];
+
+  alterEgo = ['Chuck Over street'];
+
+  heroClass = [
+    'Warrior', 'Death Knight', 'Paladin', 'Druid', 'Shaman', 'Roque', 'Demon Hunter',
+    'Priest', 'Mage', 'Warlock', 'Hunter', 'Monk'
+  ];
+
+  heroRace = [
+    'Orc', 'Tauren', 'Undead', 'Troll', 'Blood Elf', 'Goblin', 'Pandaren', 'Human',
+    'Night Elf', 'Dwarf', 'Draenei', 'Worgen', 'Gnome'
+  ];
+
+  model = new Hero(18, '', this.powers[0] + 0, '');
 
   submitted = false;
 
-  onSubmit() { this.submitted = true; }
-
-  newHero() {
-    this.model = new Hero(42, '', '');
+  onSubmit() {
+    this.submitted = true;
   }
 
-  constructor() { }
+  newHero() {
+    this.model = new Hero(33, '', '');
+  }
+
+  constructor() {
+    
+  }
 
   ngOnInit(): void {
   }
