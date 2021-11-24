@@ -8,6 +8,5 @@ export class Hero {
         public userAge?: number,
         public heroClass?: string,
         public heroRace?: string,
-        public heroStat?: string,
     ) { }
 }

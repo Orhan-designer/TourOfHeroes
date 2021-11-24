@@ -5,6 +5,7 @@ import { Hero } from './hero';
   providedIn: 'root'
 })
 export class InMemoryDataService {
+  
   createDb() {
     const heroes = [
       { id: 11, name: 'Dr Nice' },
@@ -18,6 +19,7 @@ export class InMemoryDataService {
       { id: 19, name: 'Magma' },
       { id: 20, name: 'Tornado' },
     ];
+    
     return { heroes }
   }
 
