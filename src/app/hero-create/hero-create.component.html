@@ -1,138 +1,106 @@
 <div [hidden]="submitted">
     <h1>Hero Form</h1>
-    <form (ngSubmit)="onSubmit()" #heroCreate="ngForm">
-        
+    <form [formGroup]="heroForm">
         <div class="form-group">
-            <label for="name">Name: 
-                <input type="text" class="form-control" id="name" [(ngModel)]="model.name" name="name"
-                #name="ngModel" required pattern="[a-zA-Z]*" maxLength='15'>
+            <label for="name">Name:
+                <input type="text" class="form-control" id="name" name="name" required pattern="[a-zA-Z]*"
+                    maxLength='15' formControlName="name">
             </label>
-            <div [hidden]="name.valid || name.pristine" class="alert alert-danger">
+            <!-- <div [hidden]="true" class="alert alert-danger">
                 Only letters are allowed
-            </div>
+            </div> -->
         </div>
 
         <div class="form-group">
-            <label for="userAge">User Age: 
-                <input type="text" class="form-control" id="userAge" [(ngModel)]="model.userAge" name="userAge"
-                #userAge="ngModel" required pattern="[0-9]*" maxLength="2">
+            <label for="userAge">User Age:
+                <input type="text" class="form-control" id="userAge" name="userAge" required pattern="[0-9]*"
+                    maxLength="2" formControlName="userAge">
             </label>
-            <div [hidden]="userAge.valid || userAge.pristine" class="alert alert-danger">
+            <!-- <div [hidden]="true" class="alert alert-danger">
                 Only numbers are allowed
-            </div>
+            </div> -->
         </div>
 
         <div class="form-group">
-            <label for="heroLevel">Hero Level: 
-                <input type="text" class="form-control" id="heroLevel" [(ngModel)]="model.heroLevel"
-                name="heroLevel" #heroLevel="ngModel" required pattern="[0-9]*" maxLength="3">
+            <label for="heroLevel">Hero Level:
+                <input type="text" class="form-control" id="heroLevel" name="heroLevel" required pattern="[0-9]*"
+                    maxLength="3" formControlName="heroLevel">
             </label>
-            <div [hidden]="heroLevel.valid || heroLevel.pristine" class="alert alert-danger">
+            <!-- <div [hidden]="true" class="alert alert-danger">
                 Only numbers are allowed
-            </div>
+            </div> -->
         </div>
 
         <div class="form-group">
-            <label for="alterEgo">Alter Ego: 
-                <input type="text" class="form-control" id="alterEgo" [(ngModel)]="model.alterEgo" name="alterEgo"
-                #alterEgo='ngModel' pattern="[a-zA-Z]*">
+            <label for="alterEgo">Alter Ego:
+                <input type="text" class="form-control" id="alterEgo" name="alterEgo" required pattern="[a-zA-Z]*"
+                    formControlName="alterEgo">
             </label>
-            <div [hidden]="alterEgo.valid || alterEgo.pristine" class="alert alert-danger">
-                Only letters are allowed
-            </div>
         </div>
 
         <div class="form-group">
             <label for="power">Hero Power: </label>
-            <select class="form-control" id="power" [(ngModel)]="model.power" name="power" #power="ngModel" required>
-                <option *ngFor="let pow of powers" [value]="pow">{{pow}}</option>
+            <select class="form-control" id="power" name="power" required formControlName="power">
+                <option *ngFor="let pow of power" [value]="pow">{{pow}}</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="heroClass">Hero Class: </label>
-            <select class="form-control" id="heroClass" [(ngModel)]="model.heroClass" name="heroClass" required>
+            <select class="form-control" id="heroClass" name="heroClass" required formControlName="heroClass">
                 <option *ngFor="let heroCl of heroClass" [value]="heroCl">{{heroCl}}</option>
             </select>
         </div>
 
         <div class="form-group">
             <label for="heroRace">Hero Race: </label>
-            <select class="form-control" id="heroRace" [(ngModel)]="model.heroRace" name="heroRace" required>
+            <select class="form-control" id="heroRace" name="heroRace" required formControlName="heroRace" >
                 <option *ngFor="let heroR of heroRace" [value]="heroR">{{heroR}}</option>
             </select>
         </div>
 
-        <button type="submit" class="btn btn-default" (click)="onSubmit()">Submit</button>
-        <button type="button" class="btn btn-default" (click)="newHero(); heroCreate.reset()">New Hero</button>
+        <button type="submit" class="btn btn-default" (click)="onSubmit()" [disabled]="!heroForm.valid">Create</button>
+        <button type="button" class="btn btn-default" (click)="reset()">Reset</button>
     </form>
-</div> 
+</div>
 
-<div [hidden]="!submitted">
+<div *ngIf="submitted">
     <h2>You submitted the following:</h2>
 
     <div class="row">
         <div class="col-xs-3">Name: </div>
-        <div class="col-xs-9">{{ model.name }}</div>
+        <div class="col-xs-9">{{ newHero.name }}</div>
     </div>
 
     <div class="row">
         <div class="col-xs-3">Power: </div>
-        <div class="col-xs-9">{{ model.power }}</div>
+        <div class="col-xs-9">{{ newHero.power }}</div>
     </div>
 
     <div class="row">
         <div class="col-xs-3">Alter Ego</div>
-        <div class="col-xs-9">{{ model.alterEgo }}</div>
+        <div class="col-xs-9">{{ newHero.alterEgo }}</div>
     </div>
 
     <div class="row">
         <div class="col-xs-3">Hero Level: </div>
-        <div class="col-xs-9">{{ model.heroLevel }}</div>
+        <div class="col-xs-9">{{ newHero.heroLevel }}</div>
     </div>
 
     <div class="row">
         <div class="col-xs-3">User Age: </div>
-        <div class="col-xs-9">{{ model.userAge }}</div>
+        <div class="col-xs-9">{{ newHero.userAge }}</div>
     </div>
 
     <div class="row">
         <div class="col-xs-3">Hero Class: </div>
-        <div class="col-xs-9">{{ model.heroClass }}</div>
+        <div class="col-xs-9">{{ newHero.heroClass }}</div>
     </div>
 
     <div class="row">
         <div class="col-xs-3">Hero Race: </div>
-        <div class="col-xs-9">{{ model.heroRace }}</div>
+        <div class="col-xs-9">{{ newHero.heroRace }}</div>
     </div>
     <br>
     <button class="btn btn-primary" (click)="submitted=false">Edit</button>
 </div>
-
-<!-- <h1>Hero Form</h1>
-<form [formGroup]="heroCreateForm">
-    <div class="form-group">
-        <label for="name">Name:
-            <input type="text" formControlName="name" placeholder="name">
-        </label>
-    </div>
-
-    <div class="form-group">
-        <label for="age">Age:
-            <input type="text" formControlName="age" placeholder="age">
-        </label>
-    </div>
-    
-    <div class="form-group">
-        <label for="level">Level: 
-            <input type="text" formControlName="level" placeholder="level">
-        </label>
-    </div>
-
-    <div class="form-group">
-        <select class="form-control" formControlName="power" name="power" id="power" [(ngModel)]="model.power">
-            <option *ngFor="let pow of power" [ngValue]="pow">{{pow}}></option>
-        </select>
-    </div>
-    
-</form> -->

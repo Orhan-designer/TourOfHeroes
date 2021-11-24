@@ -1,19 +1,23 @@
 import { HeroService } from './../hero.service';
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
+import { FormControl, FormGroup, NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-hero-create',
   templateUrl: './hero-create.component.html',
   styleUrls: ['./hero-create.component.less']
 })
+
+
 export class HeroCreateComponent implements OnInit {
+
   heroes: Hero[] = []
 
   name: any[] = [];
 
   userAge: any[] = [];
-  
+
   heroLevel: number[] = [];
 
   heroClass: string[] = [
@@ -21,39 +25,51 @@ export class HeroCreateComponent implements OnInit {
     'Priest', 'Mage', 'Warlock', 'Hunter', 'Monk'
   ];
 
-  heroRace:  string[] = [
+  heroRace: string[] = [
     'Orc', 'Tauren', 'Undead', 'Troll', 'Blood Elf', 'Goblin', 'Pandaren', 'Human',
     'Night Elf', 'Dwarf', 'Draenei', 'Worgen', 'Gnome'
   ];
 
-  powers: string[] = [
+  power: string[] = [
     'Strength', 'Agility', 'Stamina',
     'Intellect', 'Defence', 'Critical Strike', 'Spell combat', 'Versatility'
   ];
 
-  alterEgo:  string[] = ['Chuck Over street'];
+  alterEgo: string[] = ['Chuck Over street'];
 
   model = new Hero(0, '', '');
 
   submitted = false;
 
+  heroForm = new FormGroup({
+    name: new FormControl(''),
+    userAge: new FormControl(''),
+    heroLevel: new FormControl(''),
+    alterEgo: new FormControl(''),
+    heroClass: new FormControl(''),
+    power: new FormControl(''),
+    heroRace: new FormControl(''),
+  });
+
+  newHero = this.heroForm.value;
+
   onSubmit(): void {
+    this.newHero = this.heroForm.value;
     this.submitted = true;
-    this.heroService.addHero( {model: this.model} as unknown as Hero)
+    this.heroService.addHero(this.newHero as Hero)
       .subscribe(() => {
         this.heroes.push(this.model)
-        console.log(this.heroes)
       });
-
+      
   }
 
-  newHero() {
-    this.model = new Hero(33, '', '');
+  reset(): void {
+    this.heroForm.reset();
   }
 
   constructor(private heroService: HeroService) { }
 
-  ngOnInit(): void { 
-    
+  ngOnInit(): void {
+
   }
 }
