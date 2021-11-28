@@ -1,26 +1,25 @@
 import { HeroService } from './../hero.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Hero } from '../hero';
-import { FormControl, FormGroup, NgForm } from '@angular/forms';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'app-hero-create',
+  selector: 'hero-create',
   templateUrl: './hero-create.component.html',
   styleUrls: ['./hero-create.component.less']
 })
 
-
 export class HeroCreateComponent implements OnInit {
-
   heroes: Hero[] = []
 
-  name: any[] = [];
+  name: string[] = [];
+  message = 'hello orhan'
 
-  userAge: any[] = [];
+  userAge: number[] = [];
 
   heroLevel: number[] = [];
 
-  heroClass: string[] = [
+  heroClass = [
     'Warrior', 'Death Knight', 'Paladin', 'Druid', 'Shaman', 'Roque', 'Demon Hunter',
     'Priest', 'Mage', 'Warlock', 'Hunter', 'Monk'
   ];
@@ -60,7 +59,6 @@ export class HeroCreateComponent implements OnInit {
       .subscribe(() => {
         this.heroes.push(this.model)
       });
-      
   }
 
   reset(): void {
@@ -70,6 +68,5 @@ export class HeroCreateComponent implements OnInit {
   constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
-
   }
 }

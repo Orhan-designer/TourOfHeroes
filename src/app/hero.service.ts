@@ -7,6 +7,7 @@ import { catchError, map, tap } from 'rxjs';
 
 import { Hero } from './hero';
 import { MessageService } from './message.service';
+import { InMemoryDataService } from './in-memory-data.service';
 
 @Injectable({ providedIn: 'root' })
 
@@ -18,16 +19,19 @@ export class HeroService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
 
+
   constructor(
     private http: HttpClient,
-    private messageService: MessageService) { }
+    private messageService: MessageService,
+    private heroesData: InMemoryDataService) { }
 
   getHeroes(): Observable<Hero[]> {
-    return this.http.get<Hero[]>(this.heroesUrl)
+    return of(this.heroesData.heroes)
+ /*    return this.http.get<Hero[]>(this.heroesUrl)
       .pipe(
         tap(_ => this.log('fetched heroes')),
         catchError(this.handleError<Hero[]>('getHeroes', []))
-      );
+      ) */;
   }
 
   getHeroNo404<Data>(id: number): Observable<Hero> {
@@ -43,15 +47,16 @@ export class HeroService {
       );
   }
 
-  getHero(id: number): Observable<Hero> {
-    const url = `${this.heroesUrl}/${id}`;
+  getHero(id: number): Observable<any> {
+    return of(this.heroesData.heroes.find(h=> h.id=== id))
+/*     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),
       catchError(this.handleError<Hero>(`getHero id=${id}`))
-    );
+    ); */
   }
 
-  searchHeroes(term: string): Observable<Hero[]> {
+  searchHeroes(term: string): Observable<any> {
     if (!term.trim()) {
       return of([]);
     }
@@ -63,11 +68,15 @@ export class HeroService {
     );
   }
 
-  addHero(hero: Hero): Observable<Hero> {
-    return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
+  addHero(hero: any): Observable<any> {
+    hero.id = this.heroesData.heroes[this.heroesData.heroes.length - 1].id + 1;
+    this.heroesData.heroes.push(hero);
+    return of(hero)
+
+/*     return this.http.post<Hero>(this.heroesUrl, hero, this.httpOptions).pipe(
       tap((newHero: Hero) => this.log(`added hero w/ id=${newHero.id}`)),
       catchError(this.handleError<Hero>('addHero'))
-    );
+    ); */
   }
 
   deleteHero(id: number): Observable<Hero> {

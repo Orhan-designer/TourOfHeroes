@@ -1,0 +1,7 @@
+<ng-container *ngIf="heroId; else createHero">
+    <hero-edit [id]="heroId"></hero-edit>
+</ng-container>
+
+<ng-template #createHero>
+    <hero-create></hero-create>
+</ng-template>

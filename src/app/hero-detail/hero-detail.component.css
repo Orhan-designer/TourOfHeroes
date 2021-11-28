@@ -1,3 +1,6 @@
+div {
+  margin: 0 0 0 5px;
+}
 label {
   color: #435960;
   font-weight: bold;
@@ -7,7 +10,7 @@ input {
   padding: 0.5rem;
 }
 button {
-  margin-top: 20px;
+  margin: 20px 0 0 3px;
   background-color: #eee;
   padding: 1rem;
   border-radius: 4px;

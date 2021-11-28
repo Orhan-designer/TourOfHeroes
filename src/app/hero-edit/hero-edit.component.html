@@ -1,0 +1,60 @@
+<ng-container *ngIf="showForm">
+    <h1>Hero Edit</h1>
+    <form [formGroup]="editForm">
+        <div class="form-group">
+            <label for="name">Name: </label>
+            <input type="text" class="form-control" formControlName="name" id="name" required pattern="[a-zA-Z]*">
+            <div class="alert alert-danger" *ngIf="editForm.controls['name'].hasError('pattern')">
+                Only letters are allowed
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="userAge">User Age: </label>
+            <input type="text" class="form-control" formControlName="userAge" id="userAge" required pattern="[0-9]*" maxlength="2">
+            <div class="alert alert-danger" *ngIf="editForm.controls['userAge'].hasError('pattern')">
+                Only numbers are allowed
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="heroLevel">Hero Level: </label>
+            <input type="text" class="form-control" formControlName="heroLevel" id="heroLevel" required pattern="[0-9]*" maxlength="3">
+            <div class="alert alert-danger" *ngIf="editForm.controls['heroLevel'].hasError('pattern')">
+                Only numbers are allowed
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="alterEgo">Alter Ego: </label>
+            <input type="text" class="form-control" formControlName="alterEgo" id="alterEgo" required pattern="[a-zA-Z]*">
+            <div class="alert alert-danger" *ngIf="editForm.controls['alterEgo'].hasError('pattern')">
+                Only letters are allowed
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="heroClass">Hero Class: </label>
+            <select class="form-control" formControlName="heroClass" id="heroClass" required>
+                <option *ngFor="let heroCl of heroClass" [value]="heroCl">{{heroCl}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="heroRace">Hero Race: </label>
+            <select class="form-control" formControlName="heroRace" id="heroRace" required>
+                <option *ngFor="let heroR of heroRace" [value]="heroR">{{heroR}}</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label for="power">Power: </label>
+            <select class="form-control" formControlName="power" id="power" required>
+                <option *ngFor="let pow of power" [value]="pow">{{pow}}</option>
+            </select>
+        </div>
+
+        <button type="submit" (click)="saveChanges()" class="btn btn-primary" [disabled]="!editForm.valid">Save Changes</button>
+    </form>
+</ng-container>
+<span *ngIf="warn">{{warn}}</span>

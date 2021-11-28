@@ -18,6 +18,9 @@ import { HeroesComponent } from './heroes/heroes.component';
 import { HeroSearchComponent } from './hero-search/hero-search.component';
 import { MessagesComponent } from './messages/messages.component';
 import { HeroCreateComponent } from './hero-create/hero-create.component';
+import { HeroGeneralComponent } from './hero-general/hero-general.component';
+import { HeroEditComponent } from './hero-edit/hero-edit.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,6 +30,8 @@ import { HeroCreateComponent } from './hero-create/hero-create.component';
     MessagesComponent,
     HeroSearchComponent,
     HeroCreateComponent,
+    HeroGeneralComponent,
+    HeroEditComponent,
   ],
   imports: [
     BrowserModule,

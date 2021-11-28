@@ -1,29 +1,27 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Hero } from '../hero';
-import { HeroService } from '../hero.service';
+import { HeroSearchComponent } from '../hero-search/hero-search.component';
+import { InMemoryDataService } from '../in-memory-data.service';
 
 @Component({
   selector: 'app-heroes',
   templateUrl: './heroes.component.html',
   styleUrls: ['./heroes.component.less']
 })
-export class HeroesComponent implements OnInit {
-  heroes: Hero[] = [];
-
-  constructor(private heroService: HeroService) { }
-
-  ngOnInit() {
-    this.getHeroes();
-  }
-
-  getHeroes(): void {
-    this.heroService.getHeroes()
-      .subscribe(heroes => this.heroes = heroes);
+export class HeroesComponent {
+  heroId: any = null;
+  constructor(private router: Router, public heroesData: InMemoryDataService) { 
+    
   }
 
   delete(hero: Hero): void {
-    this.heroes = this.heroes.filter(h => h !== hero);
-    this.heroService.deleteHero(hero.id).subscribe();
+    const index = this.heroesData.heroes.findIndex((el) => el.id == hero.id)
+    this.heroesData.heroes.splice(index, 1);
+  }
+
+  edit(hero: Hero){
+    this.router.navigate([`/hero`], {queryParams: {id: hero.id}})
   }
 }
