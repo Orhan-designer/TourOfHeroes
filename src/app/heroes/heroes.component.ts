@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { Hero } from '../hero';
-import { HeroSearchComponent } from '../hero-search/hero-search.component';
 import { InMemoryDataService } from '../in-memory-data.service';
 
 @Component({

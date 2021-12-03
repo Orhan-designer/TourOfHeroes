@@ -11,6 +11,7 @@ const routes: Routes = [
   { path: 'detail/:id', component: HeroDetailComponent },
   { path: 'heroes', component: HeroesComponent },
   { path: 'hero', component: HeroGeneralComponent },
+  /* { path: 'hero-general',  component: HeroGeneralComponent} */
 ];
 
 @NgModule({

@@ -1,5 +1,5 @@
 import { HeroService } from './../hero.service';
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { FormControl, FormGroup } from '@angular/forms';
 
@@ -13,6 +13,7 @@ export class HeroCreateComponent implements OnInit {
   heroes: Hero[] = []
 
   name: string[] = [];
+
   message = 'hello orhan'
 
   userAge: number[] = [];

@@ -1,11 +1,6 @@
 import { Component } from '@angular/core';
-
 import { Observable, Subject } from 'rxjs';
-
-import {
-  debounceTime, distinctUntilChanged, switchMap
-} from 'rxjs/operators';
-
+import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { HeroService } from '../hero.service';
 
 @Component({
@@ -16,13 +11,13 @@ import { HeroService } from '../hero.service';
 export class HeroSearchComponent {
   heroes$!: Observable<any>;
   private searchTerms = new Subject<string>();
-
+  queryParams: any;
+  snapshot: any;
 
   constructor(private heroService: HeroService) { }
 
   search(term: string): void {
     this.searchTerms.next(term);
-    console.log()
   }
 
   ngOnInit(): void {
@@ -30,6 +25,7 @@ export class HeroSearchComponent {
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((term: string) => this.heroService.searchHeroes(term)),
+      
     );
   }
 }

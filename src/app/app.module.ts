@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { MatDialogModule } from '@angular/material/dialog';
 import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
@@ -42,6 +42,7 @@ import { HeroEditComponent } from './hero-edit/hero-edit.component';
     ReactiveFormsModule,
     MatSliderModule,
     HttpClientModule,
+    MatDialogModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false },
     ),
