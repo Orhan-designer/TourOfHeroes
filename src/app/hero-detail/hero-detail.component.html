@@ -74,7 +74,7 @@
             </div>
         </div>
         <button (click)='goBack()'>Go Back</button>
-        <button (click)='onEditChanges()' (click)='saveDialog()'>Edit</button>
+        <button (click)='onEditChanges()' (click)='saveDialog()' [disabled]="!editChange.valid">Edit</button>
         <button (click)='deleteDialog()' (click)='deletedHero()'>Delete</button>
     </form>
 </div>
