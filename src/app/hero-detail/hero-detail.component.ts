@@ -7,7 +7,8 @@ import { Location } from '@angular/common';
 
 import { Hero } from '../hero';
 import { InMemoryDataService } from '../in-memory-data.service';
-import { HeroService } from '../hero.service';
+import { MatDialog } from '@angular/material/dialog';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -15,8 +16,10 @@ import { HeroService } from '../hero.service';
 })
 
 export class HeroDetailComponent implements OnInit {
+  @Input() id?: number;
+
   hero!: Hero | any;
-  editChange: any;
+  editChange: any = [];
   edit = false;
   delete = false;
 
@@ -25,26 +28,40 @@ export class HeroDetailComponent implements OnInit {
     'Priest', 'Mage', 'Warlock', 'Hunter', 'Monk'
   ];
 
-  heroRace: string[] = [
+  heroRace = [
     'Orc', 'Tauren', 'Undead', 'Troll', 'Blood Elf', 'Goblin', 'Pandaren', 'Human',
     'Night Elf', 'Dwarf', 'Draenei', 'Worgen', 'Gnome'
   ];
 
-  power: string[] = [
+  power = [
     'Strength', 'Agility', 'Stamina',
     'Intellect', 'Defence', 'Critical Strike', 'Spell combat', 'Versatility'
   ];
-
-  @Input() id?: number;
-  @Input() heroLevel?: string;
 
   constructor(
     private route: ActivatedRoute,
     private location: Location,
     private data: InMemoryDataService,
     private fb: FormBuilder,
-    public heroService: HeroService,
+    private dialog: MatDialog,
   ) { }
+
+  saveDialog() {
+    this.dialog.open(PopUpComponent, {
+      data: {
+        edit: 'Editing was successful'
+      }
+    })
+    /* this.goBack(); */
+  }
+
+  deleteDialog() {
+    this.dialog.open(PopUpComponent, {
+      data: {
+        deleted: 'Do you really want to delete the hero?'
+      }
+    })
+  }
 
   ngOnInit(): void {
     this.getHero()
@@ -62,21 +79,15 @@ export class HeroDetailComponent implements OnInit {
 
   onEditChanges(): void {
     this.edit = true;
-    this.data.heroes = this.editChange.value;
-    this.heroService.updateHero(this.hero) 
-      .subscribe(() => this.goBack());
-      console.log(this.data.heroes)
-    }
+    const index = this.data.heroes.findIndex((el) => el.id == this.hero.id);
+    this.data.heroes[index] = this.editChange.value;
+    /* this.goBack(); */
+  }
 
-    deletedHero(): void {
-      const index = this.data.heroes.findIndex((el) => el.id == this.hero.id)
-      this.data.heroes.splice(index, 1);
-      console.log(this.data.heroes)
-    }
-   /* save(): void {
-    if(this.hero) {
-    this.heroService.updateHero(this.hero)
-      .subscribe(() => this.goBack());
-    }
-  }  */
+  deletedHero(): void {
+    const index = this.data.heroes.findIndex((el) => el.id == this.hero.id);
+    this.data.heroes.splice(index, 1);
+    this.dialog.open(PopUpComponent)
+    console.log(this.data.heroes)
+  }
 }

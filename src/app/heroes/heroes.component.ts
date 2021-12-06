@@ -11,9 +11,8 @@ import { InMemoryDataService } from '../in-memory-data.service';
 })
 export class HeroesComponent {
   heroId: any = null;
-  constructor(private router: Router, public heroesData: InMemoryDataService) { 
-    
-  }
+
+  constructor(private router: Router, public heroesData: InMemoryDataService) { }
 
   delete(hero: Hero): void {
     const index = this.heroesData.heroes.findIndex((el) => el.id == hero.id)

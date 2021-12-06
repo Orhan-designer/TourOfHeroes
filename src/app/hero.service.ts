@@ -12,13 +12,11 @@ import { InMemoryDataService } from './in-memory-data.service';
 @Injectable({ providedIn: 'root' })
 
 export class HeroService {
-
   private heroesUrl = 'api/heroes';
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
-
 
   constructor(
     private http: HttpClient,
@@ -34,7 +32,7 @@ export class HeroService {
       ) */;
   }
 
-  getHeroNo404<Data>(id: number): Observable<Hero> {
+  getHeroNo40(id: number): Observable<Hero> {
     const url = `${this.heroesUrl}/?id=${id}`;
     return this.http.get<Hero[]>(url)
       .pipe(
@@ -48,7 +46,7 @@ export class HeroService {
   }
 
   getHero(id: number): Observable<any> {
-    return of(this.heroesData.heroes.find(h=> h.id=== id))
+    return of(this.heroesData.heroes.find(h => h.id === id))
 /*     const url = `${this.heroesUrl}/${id}`;
     return this.http.get<Hero>(url).pipe(
       tap(_ => this.log(`fetched hero id=${id}`)),

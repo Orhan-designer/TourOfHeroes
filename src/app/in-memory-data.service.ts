@@ -13,7 +13,7 @@ export class InMemoryDataService {
     { id: 15, name: 'Magneta', userAge: 37, heroLevel: 98, alterEgo: 'Healer', heroClass: 'Priest', heroRace: 'Human', power: 'Stamina' },
     { id: 16, name: 'RubberMan', userAge: 20, heroLevel: 23, alterEgo: 'Warlock', heroClass: 'Warlock', heroRace: 'Worgen', power: 'Intellect' },
     { id: 17, name: 'Dynama', userAge: 30, heroLevel: 49, alterEgo: 'Mage', heroClass: 'Mage', heroRace: 'Gnome', power: 'Intellect' },
-    { id: 18, name: 'Dr IQ', userAge: 58, heroLevel: 87, alterEgo: 'Demon Hunter', heroClass: 'Demon Hunter', heroRace: 'Night Elf', power: 'Combat Damage' },
+    { id: 18, name: 'Dr IQ', userAge: 58, heroLevel: 87, alterEgo: 'Demon Hunter', heroClass: 'Demon Hunter', heroRace: 'Night Elf', power: 'Agility' },
     { id: 19, name: 'Magma', userAge: 48, heroLevel: 77, alterEgo: 'Monk', heroClass: 'Monk', heroRace: 'Pandaren', power: 'Defence' },
     { id: 20, name: 'Tornado', userAge: 29, heroLevel: 39, alterEgo: 'Druid', heroClass: 'Druid', heroRace: 'Troll', power: 'Strength' },
   ];

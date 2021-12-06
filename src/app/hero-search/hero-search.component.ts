@@ -11,8 +11,6 @@ import { HeroService } from '../hero.service';
 export class HeroSearchComponent {
   heroes$!: Observable<any>;
   private searchTerms = new Subject<string>();
-  queryParams: any;
-  snapshot: any;
 
   constructor(private heroService: HeroService) { }
 
@@ -25,7 +23,6 @@ export class HeroSearchComponent {
       debounceTime(300),
       distinctUntilChanged(),
       switchMap((term: string) => this.heroService.searchHeroes(term)),
-      
     );
   }
 }

@@ -15,19 +15,11 @@ h1 {
   margin-left: 5px;
 }
 .btn-primary {
-  color: #525252;
-  background-color: #eee;
-  font-size: 1.1rem;
-  padding: 1px 10px 3px 10px;
   border-radius: 5px;
   height: 4vh;
   font-size: 1rem;
   margin-left: 5px;
   outline: none;
-}
-.btn-primary:hover {
-  color: white;
-  background-color: #42545c;
 }
 .alert-danger {
   color: red;

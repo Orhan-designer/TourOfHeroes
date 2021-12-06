@@ -5,9 +5,12 @@
         <div><span>Name: </span>{{hero.name}}
             <div class="form-group">
                 <label for="name">
-                    <input type="text" class="form-control" id="name" name="name" required pattern="[a-zA-Z]*"
+                    <input type="text" class="form-control" id="name" name="name" required pattern="[a-zA-Z ]*"
                         maxLength='15' formControlName="name">
                 </label>
+                <div class="alert alert-danger" *ngIf="editChange.controls['name'].hasError('pattern')">
+                    Only letters are allowed
+                </div>
             </div>
         </div>
         <div><span>User age: </span>{{hero.userAge}}
@@ -16,6 +19,9 @@
                     <input type="text" class="form-control" id="userAge" name="userAge" required pattern="[0-9]*"
                         maxLength='2' formControlName="userAge">
                 </label>
+                <div class="alert alert-danger" *ngIf="editChange.controls['userAge'].hasError('pattern')">
+                    Only numbers are allowed
+                </div>
             </div>
         </div>
         <div><span>Hero level: </span>{{hero.heroLevel}}
@@ -24,14 +30,20 @@
                     <input type="text" class="form-control" id="heroLevel" name="heroLevel" required pattern="[0-9]*"
                         maxLength='3' formControlName="heroLevel">
                 </label>
+                <div class="alert alert-danger" *ngIf="editChange.controls['heroLevel'].hasError('pattern')">
+                    Only numbers are allowed
+                </div>
             </div>
         </div>
         <div><span>Alter ego: </span>{{hero.alterEgo}}
             <div class="form-group">
                 <label for="alterEgo">
-                    <input type="text" class="form-control" id="alterEgo" name="alterEgo" required pattern="[a-zA-Z]*"
+                    <input type="text" class="form-control" id="alterEgo" name="alterEgo" required pattern="[a-zA-Z ]*"
                         formControlName="alterEgo">
                 </label>
+                <div class="alert alert-danger" *ngIf="editChange.controls['alterEgo'].hasError('pattern')">
+                    Only letters are allowed
+                </div>
             </div>
         </div>
         <div><span>Hero power: </span>{{hero.power}}
@@ -62,7 +74,7 @@
             </div>
         </div>
         <button (click)='goBack()'>Go Back</button>
-        <button (click)='onEditChanges()'>Edit Changes</button>
-        <button (click)='deletedHero()'>Delete</button>
+        <button (click)='onEditChanges()' (click)='saveDialog()'>Edit</button>
+        <button (click)='deleteDialog()' (click)='deletedHero()'>Delete</button>
     </form>
 </div>

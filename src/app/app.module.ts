@@ -20,6 +20,7 @@ import { MessagesComponent } from './messages/messages.component';
 import { HeroCreateComponent } from './hero-create/hero-create.component';
 import { HeroGeneralComponent } from './hero-general/hero-general.component';
 import { HeroEditComponent } from './hero-edit/hero-edit.component';
+import { PopUpComponent } from './pop-up/pop-up.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { HeroEditComponent } from './hero-edit/hero-edit.component';
     HeroCreateComponent,
     HeroGeneralComponent,
     HeroEditComponent,
+    PopUpComponent,
   ],
   imports: [
     BrowserModule,

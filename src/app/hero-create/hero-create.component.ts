@@ -1,7 +1,9 @@
+import { PopUpComponent } from './../pop-up/pop-up.component';
 import { HeroService } from './../hero.service';
 import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { FormControl, FormGroup } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
 
 @Component({
   selector: 'hero-create',
@@ -10,11 +12,11 @@ import { FormControl, FormGroup } from '@angular/forms';
 })
 
 export class HeroCreateComponent implements OnInit {
+  constructor(private heroService: HeroService, private dialog: MatDialog) { }
+
   heroes: Hero[] = []
 
   name: string[] = [];
-
-  message = 'hello orhan'
 
   userAge: number[] = [];
 
@@ -53,6 +55,14 @@ export class HeroCreateComponent implements OnInit {
 
   newHero = this.heroForm.value;
 
+  createDialog() {
+    this.dialog.open(PopUpComponent, {
+      data: {
+        create: 'Hero created successfully'
+      }
+    })
+  }
+
   onSubmit(): void {
     this.newHero = this.heroForm.value;
     this.submitted = true;
@@ -65,8 +75,6 @@ export class HeroCreateComponent implements OnInit {
   reset(): void {
     this.heroForm.reset();
   }
-
-  constructor(private heroService: HeroService) { }
 
   ngOnInit(): void {
   }

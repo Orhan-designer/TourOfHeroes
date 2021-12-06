@@ -1,7 +1,11 @@
+
 import { HeroService } from '../hero.service';
 import { FormBuilder } from '@angular/forms';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { InMemoryDataService } from '../in-memory-data.service';
+import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute } from '@angular/router';
+import { PopUpComponent } from '../pop-up/pop-up.component';
 
 @Component({
   selector: 'hero-edit',
@@ -9,7 +13,6 @@ import { InMemoryDataService } from '../in-memory-data.service';
   styleUrls: ['./hero-edit.component.less']
 })
 export class HeroEditComponent implements OnInit {
-  @Input() id?: number;
 
   editForm: any;
   showForm: boolean = false;
@@ -31,12 +34,25 @@ export class HeroEditComponent implements OnInit {
     'Intellect', 'Defence', 'Critical Strike', 'Spell combat', 'Versatility'
   ];
 
-  constructor(public fb: FormBuilder, public heroService: HeroService, private inMemoryDataService: InMemoryDataService) { }
+  constructor(public fb: FormBuilder, 
+    public heroService: HeroService, 
+    private inMemoryDataService: InMemoryDataService,
+    private dialog: MatDialog,
+    private route: ActivatedRoute, 
+    ) { }
   
+  saveDialog() {
+    this.dialog.open(PopUpComponent, {
+      data: {
+        save: 'Saved successfully',
+      }
+    })
+  }
+
   ngOnInit(): void {
     this.heroService.getHeroes()
       .subscribe(heroes => {
-        this.hero = heroes.find((hero) => hero.id == this.id);
+        this.hero = heroes.find((hero) => hero.id == this.route.snapshot.params['id']);
         if (this.hero){
           this.editForm = this.fb.group(this.hero);
           this.showForm = true; 
