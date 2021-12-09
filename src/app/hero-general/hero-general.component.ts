@@ -9,12 +9,12 @@ import { Component, OnInit } from '@angular/core';
 export class HeroGeneralComponent implements OnInit {
   heroId: any = null;
   
-  /* constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe((q) => {
       if (q.hasOwnProperty('id'))
         this.heroId = q['id']
     })
-  } */
+  }
 
   ngOnInit(): void {
 

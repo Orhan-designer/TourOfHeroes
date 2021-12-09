@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { Hero } from '../hero';
 import { FormControl, FormGroup } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'hero-create',
@@ -12,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 })
 
 export class HeroCreateComponent implements OnInit {
-  constructor(private heroService: HeroService, private dialog: MatDialog) { }
+  constructor(private heroService: HeroService, private dialog: MatDialog, private router: Router) { }
 
   heroes: Hero[] = []
 
@@ -65,6 +66,7 @@ export class HeroCreateComponent implements OnInit {
 
   onSubmit(): void {
     this.newHero = this.heroForm.value;
+    this.router.navigate([`/heroes`])
     this.submitted = true;
     this.heroService.addHero(this.newHero as Hero)
       .subscribe(() => {

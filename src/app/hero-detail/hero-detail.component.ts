@@ -1,7 +1,8 @@
+import { HeroEditComponent } from '../hero-edit/hero-edit.component';
 import { FormBuilder } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 import { Location } from '@angular/common';
 
@@ -9,6 +10,8 @@ import { Hero } from '../hero';
 import { InMemoryDataService } from '../in-memory-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
+
+
 @Component({
   selector: 'app-hero-detail',
   templateUrl: './hero-detail.component.html',
@@ -44,23 +47,23 @@ export class HeroDetailComponent implements OnInit {
     private data: InMemoryDataService,
     private fb: FormBuilder,
     private dialog: MatDialog,
+    private router: Router,
   ) { }
 
-  saveDialog() {
-    this.dialog.open(PopUpComponent, {
-      data: {
-        edit: 'Editing was successful'
-      }
-    })
-    /* this.goBack(); */
-  }
-
   deleteDialog() {
-    this.dialog.open(PopUpComponent, {
+    let dialogRef = this.dialog.open(PopUpComponent, {
+      
       data: {
-        deleted: 'Do you really want to delete the hero?'
+        deleted: 'Do you really want to delete the hero?',
+        yes: 'Yes',
+        no: 'No'
       }
     })
+    dialogRef.afterClosed().subscribe((i) => { const index = this.data.heroes.findIndex((el) => { el.id == this.hero.id; console.log(i) }, );
+      this.data.heroes.splice(index, 1);
+      this.router.navigate(['/heroes']);
+      console.log(this.data.heroes);
+    });
   }
 
   ngOnInit(): void {
@@ -81,13 +84,6 @@ export class HeroDetailComponent implements OnInit {
     this.edit = true;
     const index = this.data.heroes.findIndex((el) => el.id == this.hero.id);
     this.data.heroes[index] = this.editChange.value;
-    /* this.goBack(); */
-  }
-
-  deletedHero(): void {
-    const index = this.data.heroes.findIndex((el) => el.id == this.hero.id);
-    this.data.heroes.splice(index, 1);
-    this.dialog.open(PopUpComponent)
-    console.log(this.data.heroes)
+    this.router.navigate(['/hero/edit', this.hero.id])
   }
 }

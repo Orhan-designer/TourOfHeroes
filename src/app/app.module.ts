@@ -49,7 +49,7 @@ import { PopUpComponent } from './pop-up/pop-up.component';
       InMemoryDataService, { dataEncapsulation: false },
     ),
   ],
-  providers: [],
+  providers: [HeroCreateComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

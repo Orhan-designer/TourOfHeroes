@@ -1,10 +1,10 @@
-
+import { HeroCreateComponent } from './../hero-create/hero-create.component';
 import { HeroService } from '../hero.service';
 import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { InMemoryDataService } from '../in-memory-data.service';
 import { MatDialog } from '@angular/material/dialog';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { PopUpComponent } from '../pop-up/pop-up.component';
 
 @Component({
@@ -39,6 +39,7 @@ export class HeroEditComponent implements OnInit {
     private inMemoryDataService: InMemoryDataService,
     private dialog: MatDialog,
     private route: ActivatedRoute, 
+    private router: Router,
     ) { }
   
   saveDialog() {
@@ -46,7 +47,8 @@ export class HeroEditComponent implements OnInit {
       data: {
         save: 'Saved successfully',
       }
-    })
+    });
+    this.router.navigate(['/heroes']);
   }
 
   ngOnInit(): void {
@@ -54,10 +56,10 @@ export class HeroEditComponent implements OnInit {
       .subscribe(heroes => {
         this.hero = heroes.find((hero) => hero.id == this.route.snapshot.params['id']);
         if (this.hero){
-          this.editForm = this.fb.group(this.hero);
-          this.showForm = true; 
+          this.editForm = this.fb.group(this.hero); 
+          this.showForm = true;
         } else {
-          this.warn = 'User not found';
+          /* this.warn = 'User not found'; */
         }
       });
   }
@@ -66,5 +68,4 @@ export class HeroEditComponent implements OnInit {
     const heroIndex = this.inMemoryDataService.heroes.findIndex(hero => hero.id === this.hero.id)
     this.inMemoryDataService.heroes[heroIndex] = this.editForm.value;
   }
-
 }

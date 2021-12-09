@@ -1,6 +1,6 @@
-<ng-container *ngIf="showForm">
-    <h1>Hero Edit</h1>
-    <form [formGroup]="editForm">
+<!-- <ng-container > -->
+    <h1>Hero Edit / Hero Create</h1>
+    <form [formGroup]="editForm" *ngIf="showForm">
         <div class="form-group">
             <label for="name">Name: </label>
             <input type="text" class="form-control" formControlName="name" id="name" required pattern="[a-zA-Z ]*">
@@ -56,5 +56,6 @@
 
         <button type="submit" (click)="saveChanges()" (click)="saveDialog()" class="btn btn-primary" [disabled]="!editForm.valid">Save Changes</button>
     </form>
-</ng-container>
+    <hero-create *ngIf="!hero"></hero-create>
+<!-- </ng-container> -->
 <span *ngIf="warn">{{warn}}</span>

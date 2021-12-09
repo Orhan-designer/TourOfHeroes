@@ -2,79 +2,15 @@
     <h2>{{hero.name | uppercase}} Details</h2>
     <form [formGroup]="editChange">
         <div><span>Id: </span>{{hero.id}}</div>
-        <div><span>Name: </span>{{hero.name}}
-            <div class="form-group">
-                <label for="name">
-                    <input type="text" class="form-control" id="name" name="name" required pattern="[a-zA-Z ]*"
-                        maxLength='15' formControlName="name">
-                </label>
-                <div class="alert alert-danger" *ngIf="editChange.controls['name'].hasError('pattern')">
-                    Only letters are allowed
-                </div>
-            </div>
-        </div>
-        <div><span>User age: </span>{{hero.userAge}}
-            <div class="form-group">
-                <label for="userAge">
-                    <input type="text" class="form-control" id="userAge" name="userAge" required pattern="[0-9]*"
-                        maxLength='2' formControlName="userAge">
-                </label>
-                <div class="alert alert-danger" *ngIf="editChange.controls['userAge'].hasError('pattern')">
-                    Only numbers are allowed
-                </div>
-            </div>
-        </div>
-        <div><span>Hero level: </span>{{hero.heroLevel}}
-            <div class="form-group">
-                <label for="heroLevel">
-                    <input type="text" class="form-control" id="heroLevel" name="heroLevel" required pattern="[0-9]*"
-                        maxLength='3' formControlName="heroLevel">
-                </label>
-                <div class="alert alert-danger" *ngIf="editChange.controls['heroLevel'].hasError('pattern')">
-                    Only numbers are allowed
-                </div>
-            </div>
-        </div>
-        <div><span>Alter ego: </span>{{hero.alterEgo}}
-            <div class="form-group">
-                <label for="alterEgo">
-                    <input type="text" class="form-control" id="alterEgo" name="alterEgo" required pattern="[a-zA-Z ]*"
-                        formControlName="alterEgo">
-                </label>
-                <div class="alert alert-danger" *ngIf="editChange.controls['alterEgo'].hasError('pattern')">
-                    Only letters are allowed
-                </div>
-            </div>
-        </div>
-        <div><span>Hero power: </span>{{hero.power}}
-            <div class="form-group">
-                <label for="power">
-                    <select class="form-control" id="power" name="power" required formControlName="power">
-                        <option *ngFor="let pow of power" [value]="pow">{{pow}}</option>
-                    </select>
-                </label>
-            </div>
-        </div>
-        <div><span>Hero class: </span>{{hero.heroClass}}
-            <div class="form-group">
-                <label for="heroClass">
-                    <select class="form-control" id="heroClass" name="heroClass" required formControlName="heroClass">
-                        <option *ngFor="let heroCl of heroClass" [value]="heroCl">{{heroCl}}</option>
-                    </select>
-                </label>
-            </div>
-        </div>
-        <div><span>Hero race: </span>{{hero.heroRace}}
-            <div class="form-group">
-                <label for="heroRace">
-                    <select class="form-control" id="heroRace" name="heroRace" required formControlName="heroRace">
-                        <option *ngFor="let heroR of heroRace" [value]="heroR">{{heroR}}</option>
-                    </select>
-                </label>
-            </div>
-        </div>
+        <div><span>Name: </span>{{hero.name}}</div>
+        <div><span>User age: </span>{{hero.userAge}}</div>
+        <div><span>Hero level: </span>{{hero.heroLevel}}</div>
+        <div><span>Alter ego: </span>{{hero.alterEgo}}</div>
+        <div><span>Hero power: </span>{{hero.power}}</div>
+        <div><span>Hero class: </span>{{hero.heroClass}}</div>
+        <div><span>Hero race: </span>{{hero.heroRace}}</div>
         <button (click)='goBack()'>Go Back</button>
-        <button (click)='onEditChanges()' (click)='saveDialog()' [disabled]="!editChange.valid">Edit</button>
-        <button (click)='deleteDialog()' (click)='deletedHero()'>Delete</button>
+        <button (click)='onEditChanges()' [disabled]="!editChange.valid">Edit</button>
+        <button (click)='deleteDialog()'>Delete</button>
     </form>
 </div>

@@ -1,10 +1,15 @@
 .container {
-  width: 20vw;
+  width: 17vw;
   text-align: center;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 .btn-primary {
   border-radius: 5px;
   outline: none;
+  display: flex;
+  margin: 0 10px;
 }
 h2 {
   font-family: serif;
