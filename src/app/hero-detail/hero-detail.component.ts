@@ -1,16 +1,11 @@
-import { HeroEditComponent } from '../hero-edit/hero-edit.component';
 import { FormBuilder } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
-
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { Location } from '@angular/common';
-
 import { Hero } from '../hero';
 import { InMemoryDataService } from '../in-memory-data.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PopUpComponent } from '../pop-up/pop-up.component';
-
 
 @Component({
   selector: 'app-hero-detail',
@@ -19,7 +14,16 @@ import { PopUpComponent } from '../pop-up/pop-up.component';
 })
 
 export class HeroDetailComponent implements OnInit {
-  @Input() id?: number;
+  constructor(
+    private route: ActivatedRoute,
+    private location: Location,
+    private data: InMemoryDataService,
+    private fb: FormBuilder,
+    private dialog: MatDialog,
+    private router: Router,
+  ) { }
+
+  /* @Input() id?: number; */
 
   hero!: Hero | any;
   editChange: any = [];
@@ -41,34 +45,27 @@ export class HeroDetailComponent implements OnInit {
     'Intellect', 'Defence', 'Critical Strike', 'Spell combat', 'Versatility'
   ];
 
-  constructor(
-    private route: ActivatedRoute,
-    private location: Location,
-    private data: InMemoryDataService,
-    private fb: FormBuilder,
-    private dialog: MatDialog,
-    private router: Router,
-  ) { }
-
-  deleteDialog() {
+  openDialog() {
     let dialogRef = this.dialog.open(PopUpComponent, {
-      
       data: {
         deleted: 'Do you really want to delete the hero?',
         yes: 'Yes',
         no: 'No'
       }
     })
-    dialogRef.afterClosed().subscribe((i) => { const index = this.data.heroes.findIndex((el) => { el.id == this.hero.id; console.log(i) }, );
-      this.data.heroes.splice(index, 1);
-      this.router.navigate(['/heroes']);
-      console.log(this.data.heroes);
+    dialogRef.afterClosed().subscribe((response) => { 
+      const index = this.data.heroes.indexOf(this.hero);
+      if(response == 'true') {
+        this.data.heroes.splice(index, 1);
+        this.router.navigate(['/heroes']);
+      }
     });
   }
 
   ngOnInit(): void {
     this.getHero()
     this.editChange = this.fb.group(this.hero)
+    console.log(this.hero)
   }
 
   getHero(): void {

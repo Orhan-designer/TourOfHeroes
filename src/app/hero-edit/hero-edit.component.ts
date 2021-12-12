@@ -58,8 +58,6 @@ export class HeroEditComponent implements OnInit {
         if (this.hero){
           this.editForm = this.fb.group(this.hero); 
           this.showForm = true;
-        } else {
-          /* this.warn = 'User not found'; */
         }
       });
   }

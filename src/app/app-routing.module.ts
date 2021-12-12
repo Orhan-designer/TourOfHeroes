@@ -10,10 +10,8 @@ const routes: Routes = [
   { path: 'dashboard', component: DashboardComponent},
   { path: 'detail/:id', component: HeroDetailComponent},
   { path: 'heroes', component: HeroesComponent },
-
   { path: 'hero/edit/:id', component: HeroEditComponent }, //Edit
   { path: 'hero', component: HeroEditComponent, }, //Create
-  { path: 'hero/:id', component: HeroDetailComponent}, //View
 ];
 
 @NgModule({

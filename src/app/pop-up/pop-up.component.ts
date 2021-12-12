@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, Inject, Input, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Hero } from '../hero';
 
 @Component({
   selector: 'app-pop-up',
@@ -7,16 +8,16 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
   styleUrls: ['./pop-up.component.less']
 })
 export class PopUpComponent implements OnInit {
-  
-  constructor(private dialogRef: MatDialogRef<PopUpComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { 
-    console.log(this.data)
-  }
+  hero!: Hero | any;
 
-  ngOnInit(): void {
+  constructor(public dialogRef: MatDialogRef<PopUpComponent>, @Inject(MAT_DIALOG_DATA) public data: any) { }
+
+  ngOnInit(): void { 
+    
   }
 
   pressOk() {
-    this.dialogRef.close()
+    this.dialogRef.close(true)
   }
 
 }
