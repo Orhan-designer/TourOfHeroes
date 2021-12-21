@@ -10,17 +10,10 @@ input {
 }
 label {
   font-weight: bold;
+  margin: 5px 0 0 5px;
 }
 h1 {
   margin-left: 5px;
-}
-.btn-primary {
-  border-radius: 5px;
-  height: 4vh;
-  font-size: 1rem;
-  margin-left: 5px;
-  outline: none;
-  margin-top: 10px;
 }
 .alert-danger {
   color: red;
@@ -31,4 +24,12 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.changes {
+  margin: 10px 0 0 5px;
+  color: white;
+}
+.changes:hover {
+  background-color: #e8e8e8;
+  color: #3d3d3d;
 }

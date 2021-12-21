@@ -3,9 +3,11 @@
     <h2>{{data.edit}}</h2>
     <h2>{{data.create}}</h2>
     <h2>{{data.deleted}}</h2>
-    <button class="btn btn-primary" *ngIf="data.yes" mat-button mat-dialog-close="true">{{data.yes}}</button>
-    <button class="btn btn-primary" *ngIf="data.no" mat-button mat-dialog-close="false">{{data.no}}</button>
-    <button (click)="pressOk()" class="btn btn-primary" *ngIf="!data.deleted">
-        Ok
-    </button>
+    <div class="wrapper">
+        <button class="yes" *ngIf="data.yes" mat-raised-button color="warn" mat-dialog-close="true">{{data.yes}}</button>
+        <button class="no" *ngIf="data.no" mat-raised-button color="primary" mat-dialog-close="false">{{data.no}}</button>
+        <button class="clickOk" (click)="pressOk()" color="primary" mat-raised-button *ngIf="!data.deleted">
+            Ok
+        </button>
+    </div>
 </div>

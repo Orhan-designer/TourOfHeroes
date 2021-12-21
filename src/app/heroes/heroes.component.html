@@ -4,7 +4,11 @@
         <a routerLink="/detail/{{hero.id}}">
             <span class="badge">{{hero.id}}</span> {{hero.name}}
         </a>
-        <button class="edit" title="edit hero" routerLink="/hero/edit/{{hero.id}}">Edit</button>
-        <button class="delete" title="delete hero" (click)="delete(hero)">x</button>
+        <button class="edit" title="edit hero" mat-raised-button color="primary" routerLink="/hero/edit/{{hero.id}}">
+            Edit
+        </button>
+        <button class="delete" title="delete hero" color="accent" mat-fab (click)="delete(hero)">
+            <mat-icon>delete</mat-icon>
+        </button>
     </li>
 </ul>

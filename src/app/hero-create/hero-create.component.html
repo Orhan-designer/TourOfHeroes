@@ -1,5 +1,4 @@
 <div [hidden]="submitted">
-    <!-- <h1>Hero Form</h1> -->
     <form [formGroup]="heroForm">
         <div class="form-group">
             <label for="name">Name:
@@ -57,55 +56,13 @@
 
         <div class="form-group">
             <label for="heroRace">Hero Race: </label>
-            <select class="form-control" id="heroRace" name="heroRace" required formControlName="heroRace" >
+            <select class="form-control" id="heroRace" name="heroRace" required formControlName="heroRace">
                 <option *ngFor="let heroR of heroRace" [value]="heroR">{{heroR}}</option>
             </select>
         </div>
 
-        <button type="submit" class="btn btn-default" (click)="onSubmit()" (click)="createDialog()" [disabled]="!heroForm.valid" routerLink="/heroes">Create</button>
-        <button type="button" class="btn btn-default" (click)="reset()">Reset</button>
+        <button type="submit" class="create" mat-raised-button color="accent" (click)="onSubmit()" (click)="createDialog()"
+            [disabled]="!heroForm.valid" routerLink="/heroes">Create</button>
+        <button type="button" class="reset" mat-raised-button color="primary" (click)="reset()">Reset</button>
     </form>
 </div>
-
-<!-- <div *ngIf="submitted">
-    <h2>You submitted the following:</h2>
-
-    <div class="row">
-        <div class="col-xs-3">Name: </div>
-        <div class="col-xs-9">{{ newHero.name }}</div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-3">Power: </div>
-        <div class="col-xs-9">{{ newHero.power }}</div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-3">Alter Ego</div>
-        <div class="col-xs-9">{{ newHero.alterEgo }}</div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-3">Hero Level: </div>
-        <div class="col-xs-9">{{ newHero.heroLevel }}</div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-3">User Age: </div>
-        <div class="col-xs-9">{{ newHero.userAge }}</div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-3">Hero Class: </div>
-        <div class="col-xs-9">{{ newHero.heroClass }}</div>
-    </div>
-
-    <div class="row">
-        <div class="col-xs-3">Hero Race: </div>
-        <div class="col-xs-9">{{ newHero.heroRace }}</div>
-    </div>
-    <br>
-    <button class="btn btn-primary" (click)="submitted=false">Edit</button>
-</div> -->
-
-

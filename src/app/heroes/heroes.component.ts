@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { ThemePalette } from '@angular/material/core';
 import { Router } from '@angular/router';
 
 import { Hero } from '../hero';
@@ -10,6 +11,9 @@ import { InMemoryDataService } from '../in-memory-data.service';
   styleUrls: ['./heroes.component.less']
 })
 export class HeroesComponent {
+ /*  @Input()
+  color: ThemePalette */
+
   heroId: any = null;
 
   constructor(private router: Router, public heroesData: InMemoryDataService) { }

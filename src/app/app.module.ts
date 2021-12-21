@@ -9,7 +9,10 @@ import { FormsModule } from '@angular/forms';
 import { MatSliderModule } from '@angular/material/slider';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule }from '@angular/material/icon';
 import { InMemoryDataService } from './in-memory-data.service';
+
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -45,6 +48,8 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     MatSliderModule,
     HttpClientModule,
     MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false },
     ),

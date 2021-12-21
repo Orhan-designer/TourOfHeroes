@@ -1,3 +1,4 @@
+import { HeroService } from './../hero.service';
 import { FormBuilder } from '@angular/forms';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -53,9 +54,9 @@ export class HeroDetailComponent implements OnInit {
         no: 'No'
       }
     })
-    dialogRef.afterClosed().subscribe((response) => { 
+    dialogRef.afterClosed().subscribe((response) => {
       const index = this.data.heroes.indexOf(this.hero);
-      if(response == 'true') {
+      if (response == 'true') {
         this.data.heroes.splice(index, 1);
         this.router.navigate(['/heroes']);
       }
@@ -65,7 +66,7 @@ export class HeroDetailComponent implements OnInit {
   ngOnInit(): void {
     this.getHero()
     this.editChange = this.fb.group(this.hero)
-    console.log(this.hero)
+    console.log(typeof this.editChange)
   }
 
   getHero(): void {

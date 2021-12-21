@@ -56,6 +56,7 @@ export class HeroService {
     hero.id = this.heroesData.heroes[this.heroesData.heroes.length - 1].id + 1;
     this.heroesData.heroes.push(hero);
     return of(hero);
+    /* return of(this.heroesData.heroes.filter(h => h.name.includes(hero))); */
   }
 
   deleteHero(id: number): Observable<Hero> {

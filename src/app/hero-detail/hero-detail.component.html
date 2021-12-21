@@ -9,8 +9,8 @@
         <div><span>Hero power: </span>{{hero.power}}</div>
         <div><span>Hero class: </span>{{hero.heroClass}}</div>
         <div><span>Hero race: </span>{{hero.heroRace}}</div>
-        <button (click)='goBack()'>Go Back</button>
-        <button (click)='onEditChanges()' [disabled]="!editChange.valid">Edit</button>
-        <button (click)='openDialog()'>Delete</button>
+        <button mat-raised-button class="goBack" color="primary" (click)='goBack()'>Go Back</button>
+        <button mat-raised-button class="edit" color="accent" (click)='onEditChanges()' [disabled]="!editChange.valid">Edit</button>
+        <button mat-raised-button class="delete" color="warn" (click)='openDialog()'>delete</button>
     </form>
 </div>
