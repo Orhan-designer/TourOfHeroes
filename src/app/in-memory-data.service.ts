@@ -17,6 +17,7 @@ export class InMemoryDataService {
     { id: 19, name: 'Magma', userAge: 48, heroLevel: 77, alterEgo: 'Monk', heroClass: 'Monk', heroRace: 'Pandaren', power: 'Defence' },
     { id: 20, name: 'Tornado', userAge: 29, heroLevel: 39, alterEgo: 'Druid', heroClass: 'Druid', heroRace: 'Troll', power: 'Strength' },
   ];
+
   createDb() {
     return { heroes: this.heroes }
   }

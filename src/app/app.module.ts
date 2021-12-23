@@ -11,8 +11,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule }from '@angular/material/icon';
-import { InMemoryDataService } from './in-memory-data.service';
+import { MatTableModule } from '@angular/material/table';
+import { MatSortModule } from '@angular/material/sort'
 
+import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -50,6 +52,8 @@ import { PopUpComponent } from './pop-up/pop-up.component';
     MatDialogModule,
     MatButtonModule,
     MatIconModule,
+    MatTableModule,
+    MatSortModule,
     HttpClientInMemoryWebApiModule.forRoot(
       InMemoryDataService, { dataEncapsulation: false },
     ),
