@@ -22,13 +22,13 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by id">
             Id
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        <td mat-cell *matCellDef="let element"><a routerLink="/detail/{{element.id}}">{{element.id}}</a>  </td>
     </ng-container>
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
             Name
         </th>
-        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        <td mat-cell *matCellDef="let element"><a routerLink="/detail/{{element.id}}">{{element.name}}</a></td>
     </ng-container>
     <ng-container matColumnDef="userAge">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by userAge">
