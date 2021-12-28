@@ -16,7 +16,7 @@ export class HeroesComponent {
   displayedColumns: string[] = ['id', 'name', 'userAge', 'heroLevel', 'alterEgo', 'heroClass', 'heroRace', 'power', 'edit', 'delete'];
   dataSource = new MatTableDataSource(this.heroesData.heroes)
 
-  constructor(private router: Router, public heroesData: InMemoryDataService, private _liveAnnouncer: LiveAnnouncer) { }
+  constructor(public heroesData: InMemoryDataService, private _liveAnnouncer: LiveAnnouncer) { }
 
   @ViewChild(MatSort) sort!: MatSort;
 
@@ -38,11 +38,12 @@ export class HeroesComponent {
   }
 
   delete(hero: Hero): void {
-    const index = this.heroesData.heroes.findIndex((el) => el.id == hero.id)
-    this.heroesData.heroes.splice(index, 1);
+    const index = this.dataSource.filteredData.findIndex((el) => el.id == hero.id)
+    this.dataSource.filteredData.splice(index, 1)
+    console.log(this.dataSource.filteredData)
   }
 
-  edit(hero: Hero){
+  /* edit(hero: Hero){
     this.router.navigate([`/hero`], {queryParams: {id: hero.id}})
-  }
+  } */
 }

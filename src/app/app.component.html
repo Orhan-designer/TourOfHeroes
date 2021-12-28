@@ -1,8 +1,9 @@
 <h1>{{title}}</h1>
 <nav>
-    <a mat-raised-button color="primary" routerLink='/dashboard'>Dashboard </a>
+    <a mat-raised-button color="primary" routerLink='/dashboard'>Dashboard</a>
     <a mat-raised-button color="primary" routerLink='/heroes'>Heroes</a>
     <a mat-raised-button color="primary" routerLink='/hero'>Hero Create</a>
 </nav>
+<p>{{'welcomeMessage' | translate}}</p>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

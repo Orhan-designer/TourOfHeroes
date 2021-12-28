@@ -1,4 +1,4 @@
-import { HeroCreateComponent } from './../hero-create/hero-create.component';
+import { Location } from '@angular/common';
 import { HeroService } from '../hero.service';
 import { FormBuilder } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
@@ -40,6 +40,7 @@ export class HeroEditComponent implements OnInit {
     private dialog: MatDialog,
     private route: ActivatedRoute, 
     private router: Router,
+    private location: Location,
     ) { }
   
   saveDialog() {
@@ -65,5 +66,9 @@ export class HeroEditComponent implements OnInit {
   saveChanges() {
     const heroIndex = this.inMemoryDataService.heroes.findIndex(hero => hero.id === this.hero.id)
     this.inMemoryDataService.heroes[heroIndex] = this.editForm.value;
+  }
+
+  goBack(): void {
+    this.location.back();
   }
 }

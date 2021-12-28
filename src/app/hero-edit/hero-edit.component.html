@@ -55,6 +55,7 @@
         </div>
 
         <button class="changes" type="submit" (click)="saveChanges()" mat-raised-button color="accent" (click)="saveDialog()" [disabled]="!editForm.valid">Save Changes</button>
+        <button class="goBack" color="primary" mat-raised-button (click)='goBack()'>Go Back</button>
     </form>
     <hero-create *ngIf="!hero"></hero-create>
 </ng-container>

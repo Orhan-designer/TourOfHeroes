@@ -14,3 +14,10 @@ nav a:hover {
   color: #3d3d3d;
   background-color: #e8e8e8;
 }
+nav a:focus {
+  background-color: #f73b7d;
+  color: white;
+}
+/* nav a:ac {
+  
+} */
