@@ -1,68 +1,68 @@
 <div [hidden]="submitted">
     <form [formGroup]="heroForm">
         <div class="form-group">
-            <label for="name">Name:
+            <label for="name">{{'label.Name' | translate}}
                 <input type="text" class="form-control" id="name" name="name" required pattern="[a-zA-Z ]*"
                     maxLength='15' formControlName="name">
             </label>
             <div class="alert alert-danger" *ngIf="heroForm.controls['name'].hasError('pattern')">
-                Only letters are allowed
+                {{'errors.Letters' | translate}}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="userAge">User Age:
+            <label for="userAge">{{'label.UserAge' | translate}}
                 <input type="text" class="form-control" id="userAge" name="userAge" required pattern="[0-9]*"
                     maxLength="2" formControlName="userAge">
             </label>
             <div class="alert alert-danger" *ngIf="heroForm.controls['userAge'].hasError('pattern')">
-                Only numbers are allowed
+                {{'errors.Numbers' | translate}}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="heroLevel">Hero Level:
+            <label for="heroLevel">{{'label.HeroLevel' | translate}}
                 <input type="text" class="form-control" id="heroLevel" name="heroLevel" required pattern="[0-9]*"
                     maxLength="3" formControlName="heroLevel">
             </label>
             <div class="alert alert-danger" *ngIf="heroForm.controls['heroLevel'].hasError('pattern')">
-                Only numbers are allowed
+                {{'errors.Numbers' | translate}}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="alterEgo">Alter Ego:
+            <label for="alterEgo">{{'label.AlterEgo' | translate}}
                 <input type="text" class="form-control" id="alterEgo" name="alterEgo" required pattern="[a-zA-Z ]*"
                     formControlName="alterEgo">
             </label>
             <div class="alert alert-danger" *ngIf="heroForm.controls['alterEgo'].hasError('pattern')">
-                Only letters are allowed
+                {{'errors.Letters' | translate}}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="power">Hero Power: </label>
-            <select class="form-control" id="power" name="power" required formControlName="power">
-                <option *ngFor="let pow of power" [value]="pow">{{pow}}</option>
-            </select>
-        </div>
-
-        <div class="form-group">
-            <label for="heroClass">Hero Class: </label>
+            <label for="heroClass">{{'label.HeroClass' | translate}} </label>
             <select class="form-control" id="heroClass" name="heroClass" required formControlName="heroClass">
                 <option *ngFor="let heroCl of heroClass" [value]="heroCl">{{heroCl}}</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="heroRace">Hero Race: </label>
+            <label for="heroRace">{{'label.HeroRace' | translate}} </label>
             <select class="form-control" id="heroRace" name="heroRace" required formControlName="heroRace">
                 <option *ngFor="let heroR of heroRace" [value]="heroR">{{heroR}}</option>
             </select>
         </div>
 
+        <div class="form-group">
+            <label for="power">{{'label.Power' | translate}} </label>
+            <select class="form-control" id="power" name="power" required formControlName="power">
+                <option *ngFor="let pow of power" [value]="pow" >{{pow}}</option>
+            </select>
+        </div>
+
         <button type="submit" class="create" mat-raised-button color="accent" (click)="onSubmit()" (click)="createDialog()"
-            [disabled]="!heroForm.valid" routerLink="/heroes">Create</button>
-        <button type="button" class="reset" mat-raised-button color="primary" (click)="reset()">Reset</button>
+            [disabled]="!heroForm.valid" routerLink="/heroes">{{'buttons.Create' | translate}}</button>
+        <button type="button" class="reset" mat-raised-button color="primary" (click)="reset()">{{'buttons.Reset' | translate}}</button>
     </form>
 </div>

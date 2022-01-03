@@ -1,61 +1,61 @@
 <ng-container >
-    <h1>Hero Edit / Hero Create</h1>
+    <h1>{{'buttons.Edit' | translate}}/{{'buttons.Create' | translate}}</h1>
     <form [formGroup]="editForm" *ngIf="showForm">
         <div class="form-group">
-            <label for="name">Name: </label>
+            <label for="name">{{'label.Name' | translate}}</label>
             <input type="text" class="form-control" formControlName="name" id="name" required pattern="[a-zA-Z ]*">
             <div class="alert alert-danger" *ngIf="editForm.controls['name'].hasError('pattern')">
-                Only letters are allowed
+                {{'errors.Letters' | translate}}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="userAge">User Age: </label>
+            <label for="userAge">{{'label.UserAge' | translate}}</label>
             <input type="text" class="form-control" formControlName="userAge" id="userAge" required pattern="[0-9]*" maxlength="2">
             <div class="alert alert-danger" *ngIf="editForm.controls['userAge'].hasError('pattern')">
-                Only numbers are allowed
+                {{'errors.Numbers' | translate}}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="heroLevel">Hero Level: </label>
+            <label for="heroLevel">{{'label.HeroLevel' | translate}}</label>
             <input type="text" class="form-control" formControlName="heroLevel" id="heroLevel" required pattern="[0-9]*" maxlength="3">
             <div class="alert alert-danger" *ngIf="editForm.controls['heroLevel'].hasError('pattern')">
-                Only numbers are allowed
+                {{'errors.Numbers' | translate}}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="alterEgo">Alter Ego: </label>
+            <label for="alterEgo">{{'label.AlterEgo' | translate}}</label>
             <input type="text" class="form-control" formControlName="alterEgo" id="alterEgo" required pattern="[a-zA-Z ]*">
             <div class="alert alert-danger" *ngIf="editForm.controls['alterEgo'].hasError('pattern')">
-                Only letters are allowed
+                {{'errors.Letters' | translate}}
             </div>
         </div>
 
         <div class="form-group">
-            <label for="heroClass">Hero Class: </label>
+            <label for="heroClass">{{'label.HeroClass' | translate}}</label>
             <select class="form-control" formControlName="heroClass" id="heroClass" required>
                 <option *ngFor="let heroCl of heroClass" [value]="heroCl">{{heroCl}}</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="heroRace">Hero Race: </label>
+            <label for="heroRace">{{'label.HeroRace' | translate}}</label>
             <select class="form-control" formControlName="heroRace" id="heroRace" required>
                 <option *ngFor="let heroR of heroRace" [value]="heroR">{{heroR}}</option>
             </select>
         </div>
 
         <div class="form-group">
-            <label for="power">Power: </label>
+            <label for="power">{{'label.Power' | translate}}</label>
             <select class="form-control" formControlName="power" id="power" required>
                 <option *ngFor="let pow of power" [value]="pow">{{pow}}</option>
             </select>
         </div>
 
-        <button class="changes" type="submit" (click)="saveChanges()" mat-raised-button color="accent" (click)="saveDialog()" [disabled]="!editForm.valid">Save Changes</button>
-        <button class="goBack" color="primary" mat-raised-button (click)='goBack()'>Go Back</button>
+        <button class="changes" type="submit" (click)="saveChanges()" mat-raised-button color="accent" (click)="saveDialog()" [disabled]="!editForm.valid">{{'buttons.SaveChanges' | translate}}</button>
+        <button class="goBack" color="primary" mat-raised-button (click)='goBack()'>{{'buttons.GoBack' | translate}}</button>
     </form>
     <hero-create *ngIf="!hero"></hero-create>
 </ng-container>

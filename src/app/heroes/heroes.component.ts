@@ -1,8 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
 import { MatTableDataSource } from '@angular/material/table';
 import { LiveAnnouncer } from '@angular/cdk/a11y';
-
 import { Hero } from '../hero';
 import { InMemoryDataService } from '../in-memory-data.service';
 import { MatSort, Sort } from '@angular/material/sort';
@@ -38,9 +36,9 @@ export class HeroesComponent {
   }
 
   delete(hero: Hero): void {
-    const index = this.dataSource.filteredData.findIndex((el) => el.id == hero.id)
+    const index = this.dataSource.filteredData.findIndex(el => el.id == hero.id)
     this.dataSource.filteredData.splice(index, 1)
-    console.log(this.dataSource.filteredData)
+    console.log(this.dataSource)
   }
 
   /* edit(hero: Hero){

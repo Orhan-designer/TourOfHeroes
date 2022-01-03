@@ -1,0 +1,41 @@
+{
+  "buttons": {
+    "Dashboard": "Armaturenbrett",
+    "Heroes": "Helden",
+    "HeroCreate": "Helden erstellen",
+    "GoBack": "Geh zurück",
+    "Edit": "Bearbeiten",
+    "Delete": "Löschen",
+    "SaveChanges": "Änderungen speichern",
+    "Create": "Erstellen",
+    "Reset": "Zurücksetzen"
+  },
+  "label": {
+    "Filter": "Filter",
+    "Search": "Suche",
+    "Name": "Name",
+    "UserAge": "Benutzeralter",
+    "HeroLevel": "Heldenstufe",
+    "HeroClass": "Heldenklasse",
+    "HeroRace": "Heldenrennen",
+    "AlterEgo": "Alter Ego",
+    "Power": "Leistung"
+  },
+  "errors": {
+    "Letters": "Es sind nur buchstaben erlaubt",
+    "Numbers": "Es sind nur zahlen erlaubt"
+  },
+  "PopUp": {
+    "yes": "Ja",
+    "no": "Nein",
+    "edit": "Erfolgreich gespeichert",
+    "delete": "Möchten Sie den Helden wirklich löschen?",
+    "create": "Held erfolgreich erstellt",
+    "save": "Erfolgreich gespeichert"
+  },
+  "title": {
+    "myHeroes": "Meine Helden",
+    "tourOfHeroes": "Tour der Helden",
+    "topHeroes": "Top Helden"
+  }
+}

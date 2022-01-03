@@ -1,9 +1,13 @@
-<h1>{{title}}</h1>
+<h1>{{'title.tourOfHeroes' | translate}}</h1>
 <nav>
-    <a mat-raised-button color="primary" routerLink='/dashboard'>Dashboard</a>
-    <a mat-raised-button color="primary" routerLink='/heroes'>Heroes</a>
-    <a mat-raised-button color="primary" routerLink='/hero'>Hero Create</a>
+    <a mat-raised-button color="primary" routerLink='/dashboard'>{{'buttons.Dashboard' | translate}}</a>
+    <a mat-raised-button color="primary" routerLink='/heroes'>{{'buttons.Heroes' | translate}}</a>
+    <a mat-raised-button color="primary" routerLink='/hero'>{{'buttons.HeroCreate' | translate}}</a>
+    <select color="primary" (change)="selectLanguage($event)" class="language-picker">
+        <option value="en-US">English</option>
+        <option value="ru-RU">Russian</option>
+        <option value="de-DE">German</option>
+    </select>
 </nav>
-<p>{{'welcomeMessage' | translate}}</p>
 <router-outlet></router-outlet>
 <app-messages></app-messages>

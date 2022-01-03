@@ -1,4 +1,4 @@
-<h2>My Heroes</h2>
+<h2>{{'title.myHeroes' | translate}}</h2>
 <!-- <ul class="heroes">
     <li *ngFor="let hero of heroesData.heroes">
         <a routerLink="/detail/{{hero.id}}">
@@ -13,8 +13,8 @@
     </li>
 </ul> -->
 <div appearance="standard">
-    <label>Filter</label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="search" #input>
+    <label>{{'label.Filter' | translate}}</label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="{{'label.Search' | translate}}" #input>
 </div>
 
 <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" (matSortChange)="announceSortChange($event)">
@@ -26,56 +26,56 @@
     </ng-container>
     <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by name">
-            Name
+            {{'label.Name' | translate}}
         </th>
         <td mat-cell *matCellDef="let element"><a routerLink="/detail/{{element.id}}">{{element.name}}</a></td>
     </ng-container>
     <ng-container matColumnDef="userAge">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by userAge">
-            User Age
+            {{'label.UserAge' | translate}}
         </th>
         <td mat-cell *matCellDef="let element"> {{element.userAge}} </td>
     </ng-container>
     <ng-container matColumnDef="heroLevel">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by heroLevel">
-            Hero Level
+            {{'label.HeroLevel' | translate}}
         </th>
         <td mat-cell *matCellDef="let element"> {{element.heroLevel}} </td>
     </ng-container>
     <ng-container matColumnDef="alterEgo">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by alterEgo">
-            Alter Ego
+            {{'label.AlterEgo' | translate}}
         </th>
         <td mat-cell *matCellDef="let element"> {{element.alterEgo}} </td>
     </ng-container>
     <ng-container matColumnDef="heroClass">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by heroClass">
-            Hero Class
+            {{'label.HeroClass' | translate}}
         </th>
         <td mat-cell *matCellDef="let element"> {{element.heroClass}} </td>
     </ng-container>
     <ng-container matColumnDef="heroRace">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by heroRace">
-            Hero Race
+            {{'label.HeroRace' | translate}}
         </th>
         <td mat-cell *matCellDef="let element"> {{element.heroRace}} </td>
     </ng-container>
     <ng-container matColumnDef="power">
         <th mat-header-cell *matHeaderCellDef mat-sort-header sortActionDescription="Sort by power">
-            Power
+            {{'label.Power' | translate}}
         </th>
         <td mat-cell *matCellDef="let element"> {{element.power}} </td>
     </ng-container>
     <ng-container matColumnDef="edit">
-        <th mat-header-cell *matHeaderCellDef>Edit</th>
+        <th mat-header-cell *matHeaderCellDef>{{'buttons.Edit' | translate}}</th>
         <td mat-cell *matCellDef="let element">
             <button class="edit" title="edit hero" mat-raised-button color="primary" routerLink="/hero/edit/{{element.id}}">
-                Edit
+                {{'buttons.Edit' | translate}}
             </button>
         </td>
     </ng-container>
     <ng-container matColumnDef="delete">
-        <th mat-header-cell *matHeaderCellDef>Delete</th>
+        <th mat-header-cell *matHeaderCellDef>{{'buttons.Delete' | translate}}</th>
         <td mat-cell *matCellDef="let element">
             <button class="delete" title="delete hero" color="accent" mat-fab (click)="delete(element)">
                 <mat-icon>delete</mat-icon>

@@ -1,11 +1,10 @@
 <div class="container">
-    <h2>{{data.save}}</h2>
-    <h2>{{data.edit}}</h2>
-    <h2>{{data.create}}</h2>
-    <h2>{{data.deleted}}</h2>
+    <h2 *ngIf="data.save">{{'PopUp.save' | translate}}</h2>
+    <h2 *ngIf="data.create">{{'PopUp.create' | translate}}</h2>
+    <h2 *ngIf="data.deleted">{{'PopUp.delete' | translate}}</h2>
     <div class="wrapper">
-        <button class="yes" *ngIf="data.yes" mat-raised-button color="warn" mat-dialog-close="true">{{data.yes}}</button>
-        <button class="no" *ngIf="data.no" mat-raised-button color="primary" mat-dialog-close="false">{{data.no}}</button>
+        <button class="yes" *ngIf="data.yes" mat-raised-button color="warn" mat-dialog-close="true">{{'PopUp.yes' | translate}}</button>
+        <button class="no" *ngIf="data.no" mat-raised-button color="primary" mat-dialog-close="false">{{'PopUp.no' | translate}}</button>
         <button class="clickOk" (click)="pressOk()" color="primary" mat-raised-button *ngIf="!data.deleted">
             Ok
         </button>

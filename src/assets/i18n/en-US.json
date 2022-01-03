@@ -1,0 +1,41 @@
+{
+  "buttons": {
+    "Dashboard": "Dashboard",
+    "Heroes": "Heroes",
+    "HeroCreate": "Hero Create",
+    "GoBack": "Go Back",
+    "Edit": "Edit",
+    "Delete": "Delete",
+    "SaveChanges": "Save Changes",
+    "Create": "Create",
+    "Reset": "Reset"
+  },
+  "label": {
+    "Filter": "Filter",
+    "Search": "Search",
+    "Name": "Name",
+    "UserAge": "User Age",
+    "HeroLevel": "Hero Level",
+    "HeroClass": "Hero Class",
+    "HeroRace": "Hero Race",
+    "AlterEgo": "Alter Ego",
+    "Power": "Power"
+  },
+  "errors": {
+    "Letters": "Only letters are allowed",
+    "Numbers": "Only numbers are allowed"
+  },
+  "PopUp" : {
+    "yes" : "Yes",
+    "no" : "No",
+    "edit" : "Saved successfully",
+    "delete" : "Do you really want to delete the hero?",
+    "create" : "Hero created successfully",
+    "save" : "Saved successfully"
+  },
+  "title" : {
+    "myHeroes" : "My Heroes",
+    "tourOfHeroes" : "Tour of Heroes",
+    "topHeroes" : "Top Heroes"
+  }
+}

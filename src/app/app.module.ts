@@ -13,6 +13,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatTableModule } from '@angular/material/table';
 import { MatSortModule } from '@angular/material/sort'
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
 import { TranslateModule, TranslateLoader } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
@@ -29,8 +30,8 @@ import { HeroGeneralComponent } from './hero-general/hero-general.component';
 import { HeroEditComponent } from './hero-edit/hero-edit.component';
 import { PopUpComponent } from './pop-up/pop-up.component';
 
-export function HttpLoaderFactory(http: HttpClient) {
-  return new TranslateHttpLoader(http, '../assets/i18n/', '.json');
+export function HttpLoaderFactory(httpClient: HttpClient): TranslateLoader {
+  return new TranslateHttpLoader(httpClient);
 }
 @NgModule({
   declarations: [
@@ -59,20 +60,20 @@ export function HttpLoaderFactory(http: HttpClient) {
     MatIconModule,
     MatTableModule,
     MatSortModule,
+    MatButtonToggleModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
-        deps: [HttpClient]
+        useFactory: (HttpLoaderFactory),
+        deps: [HttpClient],
       },
+      defaultLanguage: 'en-US',
     }),
     HttpClientInMemoryWebApiModule.forRoot(
-      InMemoryDataService, { dataEncapsulation: false },
+      InMemoryDataService, { dataEncapsulation: false, passThruUnknownUrl: true },
     ),
   ],
-  providers: [HeroCreateComponent, HeroDetailComponent],
   bootstrap: [AppComponent]
 })
-
 
 export class AppModule { }
