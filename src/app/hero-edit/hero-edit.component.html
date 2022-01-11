@@ -3,7 +3,7 @@
     <form [formGroup]="editForm" *ngIf="showForm">
         <div class="form-group">
             <label for="name">{{'label.Name' | translate}}</label>
-            <input type="text" class="form-control" formControlName="name" id="name" required pattern="[a-zA-Z ]*">
+            <input type="text" class="form-control" formControlName="name" id="name" required pattern="[a-zA-Zа-яА-Я ]*">
             <div class="alert alert-danger" *ngIf="editForm.controls['name'].hasError('pattern')">
                 {{'errors.Letters' | translate}}
             </div>
@@ -27,7 +27,7 @@
 
         <div class="form-group">
             <label for="alterEgo">{{'label.AlterEgo' | translate}}</label>
-            <input type="text" class="form-control" formControlName="alterEgo" id="alterEgo" required pattern="[a-zA-Z ]*">
+            <input type="text" class="form-control" formControlName="alterEgo" id="alterEgo" required pattern="[a-zA-Zа-яА-Я ]*">
             <div class="alert alert-danger" *ngIf="editForm.controls['alterEgo'].hasError('pattern')">
                 {{'errors.Letters' | translate}}
             </div>

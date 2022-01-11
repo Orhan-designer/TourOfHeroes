@@ -2,7 +2,7 @@
     <form [formGroup]="heroForm">
         <div class="form-group">
             <label for="name">{{'label.Name' | translate}}
-                <input type="text" class="form-control" id="name" name="name" required pattern="[a-zA-Z ]*"
+                <input type="text" class="form-control" id="name" name="name" required pattern="[a-zA-Zа-яА-Я ]*"
                     maxLength='15' formControlName="name">
             </label>
             <div class="alert alert-danger" *ngIf="heroForm.controls['name'].hasError('pattern')">
@@ -32,7 +32,7 @@
 
         <div class="form-group">
             <label for="alterEgo">{{'label.AlterEgo' | translate}}
-                <input type="text" class="form-control" id="alterEgo" name="alterEgo" required pattern="[a-zA-Z ]*"
+                <input type="text" class="form-control" id="alterEgo" name="alterEgo" required pattern="[a-zA-Zа-яА-Я ]*"
                     formControlName="alterEgo">
             </label>
             <div class="alert alert-danger" *ngIf="heroForm.controls['alterEgo'].hasError('pattern')">

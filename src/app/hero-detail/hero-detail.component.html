@@ -1,5 +1,5 @@
 <div *ngIf='hero'>
-    <h2>{{hero.name | uppercase}} Details</h2>
+    <h2>{{hero.name | uppercase}} {{'title.details' | translate}}</h2>
     <form [formGroup]="editChange">
         <div><span>Id: </span>{{hero.id}}</div>
         <div><span>{{'label.Name' | translate}}: </span>{{hero.name}}</div>

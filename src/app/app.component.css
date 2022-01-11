@@ -28,3 +28,7 @@ nav a:focus {
   font-size: 14px;
   outline: none;
 }
+.active {
+  background-color: #f73b7d;
+  color: white;
+}

@@ -11,13 +11,11 @@ input {
 button.delete {
   width: 2.1vw;
   height: 4.2vh;
+  background-attachment: fixed;
 }
 mat-icon {
-  width: 1vw;
-  height: 2.3vh;
   position: relative;
-  bottom: 8px;
-  left: -2px;
+  bottom: 7px;
 }
 button.edit:hover {
   background-color: #e8e8e8;

@@ -36,9 +36,9 @@ export class HeroesComponent {
   }
 
   delete(hero: Hero): void {
-    const index = this.dataSource.filteredData.findIndex(el => el.id == hero.id)
-    this.dataSource.filteredData.splice(index, 1)
-    console.log(this.dataSource)
+    const index = this.dataSource.data.findIndex((el) => el.id == hero.id)
+    this.dataSource.data.splice(index, 1)
+    this.dataSource._updateChangeSubscription();
   }
 
   /* edit(hero: Hero){

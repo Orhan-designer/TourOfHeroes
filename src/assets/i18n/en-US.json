@@ -36,6 +36,7 @@
   "title" : {
     "myHeroes" : "My Heroes",
     "tourOfHeroes" : "Tour of Heroes",
-    "topHeroes" : "Top Heroes"
+    "topHeroes" : "Top Heroes",
+    "details" : "Details"
   }
 }

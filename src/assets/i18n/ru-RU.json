@@ -36,6 +36,7 @@
     "title": {
         "myHeroes": "Мои Герои",
         "tourOfHeroes": "Тур Героев",
-        "topHeroes": "Лучшие герои"
+        "topHeroes": "Лучшие герои",
+        "details" : "Подробности"
     }
 }

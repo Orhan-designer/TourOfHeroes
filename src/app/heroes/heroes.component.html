@@ -1,17 +1,4 @@
 <h2>{{'title.myHeroes' | translate}}</h2>
-<!-- <ul class="heroes">
-    <li *ngFor="let hero of heroesData.heroes">
-        <a routerLink="/detail/{{hero.id}}">
-            <span class="badge">{{hero.id}}</span> {{hero.name}}
-        </a>
-        <button class="edit" title="edit hero" mat-raised-button color="primary" routerLink="/hero/edit/{{hero.id}}">
-            Edit
-        </button>
-        <button class="delete" title="delete hero" color="accent" mat-fab (click)="delete(hero)">
-            <mat-icon>delete</mat-icon>
-        </button>
-    </li>
-</ul> -->
 <div appearance="standard">
     <label>{{'label.Filter' | translate}}</label>
     <input matInput (keyup)="applyFilter($event)" placeholder="{{'label.Search' | translate}}" #input>
